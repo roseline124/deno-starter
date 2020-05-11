@@ -2,9 +2,9 @@
 
 deno-starter with denon. (denon is the replacement for nodemon)
 
-https://github.com/denoland/deno
-https://github.com/akifo/deno-starter
-https://github.com/eliassjogreen/denon
+- https://github.com/denoland/deno
+- https://github.com/akifo/deno-starter
+- https://github.com/eliassjogreen/denon
 
 ## Install deno
 
