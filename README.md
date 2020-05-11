@@ -61,7 +61,7 @@ $ deno types > ~/.deno/deno.d.ts
 ## Command
 
 ```bash
-$ deno src/index.ts
+$ deno run src/index.ts
 ```
 
 ## about deno 2019/5/1
