@@ -1,8 +1,21 @@
 # deno-starter
 
-https://github.com/denoland/deno
+deno-starter with denon. (denon is the replacement for nodemon)
 
-## bash Settings
+https://github.com/denoland/deno
+https://github.com/akifo/deno-starter
+https://github.com/eliassjogreen/denon
+
+## Install deno
+
+Refer [deno document](https://github.com/denoland/deno_install).
+If it doesn't work in Windows, use `PowerShell`.
+
+## Install denon
+
+- install: `deno install --unstable --allow-read --allow-run -f https://deno.land/x/denon/denon.ts`
+
+## Environment Variables Settings
 
 `.bash_profile`
 
@@ -12,34 +25,12 @@ export DENO_DIR=$HOME/.deno
 export PATH=$DENO_DIR/bin:$PATH
 ```
 
-## VS Code Settings
+`Windows`
 
-https://github.com/justjavac/vscode-deno
+Make new system variable like 'DENO_PATH'.
+And add `%DENO_PATH%` to PATH in system variable.
 
-This extension remove error `An import path cannot end with a '.ts' extension. Consider importing 'https://denopkg.com/xxx/xxx/xxx' instead.`
-
-Set to Disable by default as it affects other projects.
-
-- Disabled > Default
-- Enabled > Only deno project
-
-`.vscode/settings.json`
-
-```json
-{
-  "deno.enable": true
-}
-```
-
-## Create deno.d.ts
-
-```
-$ deno types > ~/.deno/deno.d.ts
-```
-
-## tsconfig.json
-
-`baseUrl` writes the relative path of the project.
+## deno: tsconfig.json
 
 ```
 {
@@ -47,23 +38,54 @@ $ deno types > ~/.deno/deno.d.ts
     "lib": ["es6", "es2018", "dom", "esnext.asynciterable"],
     "target": "es6",
     "module": "commonjs",
-    "baseUrl": "../../.deno",
     "paths": {
       "deno": ["deno.d.ts"],
-      "http://*": ["deps/http/*"],
-      "https://*": ["deps/https/*"],
       "*.ts": ["./*"]
     }
   }
 }
 ```
 
+## denon configuration
+
+`.denon.json` (you can use one of these `.denon`, `.denonrc`, `.denonrc.json`.)
+
+```
+{
+  "files": ["src/index.ts"],
+  "quiet": false,
+  "debug": true,
+  "fullscreen": true,
+  "extensions": [".js", ".ts", ".py", ".json"],
+  "interval": 500,
+  "watch": ["src/"],
+  "execute": {
+      ".js": ["deno", "run"],
+      ".ts": ["deno", "run"],
+      ".py": ["python"]
+  },
+  "fmt": false,
+  "test": true
+}
+```
+
 ## Command
 
 ```bash
-$ deno src/index.ts
+$ deno run src/index.ts
 ```
 
-## about deno 2019/5/1
+or Use denon
 
-- It can not use TypeScript Decorators
+```bash
+$ denon
+```
+
+## IT. DOESN'T. WORK!!!
+
+check these.
+
+- did you install deno or denon?
+- did you set environment variables?
+- check the deno path is right path
+- check file path in configuration
